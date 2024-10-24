@@ -3,14 +3,14 @@ members = ["crates/*", "tests/*"]
 resolver = "2"
 
 [workspace.package]
-version = "0.8.7"
-edition = "2021"
-rust-version = "1.79"
 authors = ["Alloy Contributors"]
-license = "MIT OR Apache-2.0"
-homepage = "https://github.com/alloy-rs/core"
-repository = "https://github.com/alloy-rs/core"
+edition = "2021"
 exclude = ["tests"]
+homepage = "https://github.com/alloy-rs/core"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/alloy-rs/core"
+rust-version = "1.79"
+version = "0.8.7"
 
 [workspace.metadata.docs.rs]
 all-features = true
@@ -19,20 +19,20 @@ rustdoc-args = ["--cfg", "docsrs"]
 [workspace.lints.clippy]
 dbg-macro = "warn"
 manual-string-new = "warn"
+missing-const-for-fn = "warn"
+redundant-clone = "warn"
 uninlined-format-args = "warn"
 use-self = "warn"
-redundant-clone = "warn"
-missing-const-for-fn = "warn"
 
 [workspace.lints.rust]
 missing-copy-implementations = "warn"
 missing-debug-implementations = "warn"
 missing-docs = "warn"
+redundant-lifetimes = "warn"
 rust-2018-idioms = "warn"
+unnameable-types = "warn"
 unreachable-pub = "warn"
 unused-must-use = "warn"
-redundant-lifetimes = "warn"
-unnameable-types = "warn"
 
 [workspace.lints.rustdoc]
 all = "warn"
@@ -44,8 +44,8 @@ alloy-dyn-abi = { version = "0.8.7", path = "crates/dyn-abi", default-features =
 alloy-json-abi = { version = "0.8.7", path = "crates/json-abi", default-features = false }
 alloy-primitives = { version = "0.8.7", path = "crates/primitives", default-features = false }
 alloy-sol-macro = { version = "0.8.7", path = "crates/sol-macro", default-features = false }
-alloy-sol-macro-input = { version = "0.8.7", path = "crates/sol-macro-input", default-features = false }
 alloy-sol-macro-expander = { version = "0.8.7", path = "crates/sol-macro-expander", default-features = false }
+alloy-sol-macro-input = { version = "0.8.7", path = "crates/sol-macro-input", default-features = false }
 alloy-sol-type-parser = { version = "0.8.7", path = "crates/sol-type-parser", default-features = false }
 alloy-sol-types = { version = "0.8.7", path = "crates/sol-types", default-features = false }
 syn-solidity = { version = "0.8.7", path = "crates/syn-solidity", default-features = false }
@@ -63,21 +63,21 @@ syn = "2.0"
 cfg-if = "1.0.0"
 derive_more = { version = "1.0", default-features = false }
 hex-literal = "0.4"
-paste = "1.0"
 num_enum = "0.7"
+paste = "1.0"
 thiserror = "1.0"
 
 # crypto
 digest = "0.10"
 k256 = { version = "0.13", default-features = false }
 keccak-asm = { version = "0.1.0", default-features = false }
-tiny-keccak = { version = "2.0", default-features = false }
 sha3 = { version = "0.10.8", default-features = false }
+tiny-keccak = { version = "2.0", default-features = false }
 
 # maps
+foldhash = { version = "0.1", default-features = false }
 hashbrown = { version = "0.15", default-features = false }
 indexmap = { version = "2.5", default-features = false }
-foldhash = { version = "0.1", default-features = false }
 rustc-hash = { version = "2.0", default-features = false }
 
 # misc
@@ -102,6 +102,9 @@ pretty_assertions = "1.4"
 proptest = "1"
 proptest-derive = "0.5"
 rand = { version = "0.8", default-features = false }
-ruint = { version = "1.12.3", default-features = false, features = ["alloc"] }
+ruint = { version = "1.12.3", default-features = false, features = [
+    "alloc",
+    "arbitrary",
+] }
 ruint-macro = { version = "1", default-features = false }
 winnow = { version = "0.6", default-features = false, features = ["alloc"] }
